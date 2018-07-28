@@ -37,6 +37,10 @@ ol {
   text-align: center;
 }
 
+section:not(:first-of-type) {
+  margin-top: 3.5em;
+}
+
 th div {
   text-align: left;
   display: flex;
