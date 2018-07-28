@@ -1,13 +1,15 @@
 import * as d3 from 'd3'
 
+const circleRadious = 5
+
+const margin = { top: 10, right: 10, bottom: 30, left: 40 }
+const width = 960 - margin.left - margin.right
+const height = 500 - margin.top - margin.bottom
+
 export function createAppCategoriesChart(data) {
   data = stringToNumber(data)
   const xMax = Math.max(...data.map(d => d.price_avg))
   const yMax = Math.max(...data.map(d => d.rating_avg))
-  const margin = { top: 10, right: 10, bottom: 30, left: 40 }
-  const width = 960 - margin.left - margin.right
-  const height = 500 - margin.top - margin.bottom
-
   const xScale = d3.scaleLinear()
     .domain([0, xMax])
     .range([0, width])
@@ -53,12 +55,14 @@ export function createAppCategoriesChart(data) {
     .data(data)
     .enter().append("circle")
     .attr("class", "dot")
-    .attr("r", 4)
+    .attr("r", circleRadious)
     .attr("stroke", "black")
     .attr("stroke-width", 1)
     .attr("cx", (d) => xScale(d.price_avg))
     .attr("cy", (d) => yScale(d.rating_avg))
     .style("fill", (d) => color(d.category))
+    .on('mouseover', handleMouseOver)
+    .on('mouseout', handleMouseOut)
 
   const legend = svg.append('g')
     .attr("class", "legend-wrapper")
@@ -80,6 +84,8 @@ export function createAppCategoriesChart(data) {
     .attr("dy", ".25em")
     .style("text-anchor", "end")
     .text((d) => d)
+
+
 }
 
 function stringToNumber(data) {
@@ -88,6 +94,14 @@ function stringToNumber(data) {
     price_avg: roundTwoDecimals(d.price_avg),
     rating_avg: roundTwoDecimals(d.rating_avg)
   }))
+}
+
+function handleMouseOver(d, i) {
+  d3.select(this).attr('r', circleRadious * 2)
+}
+
+function handleMouseOut(d, i) {
+  d3.select(this).attr('r', circleRadious)
 }
 
 function roundTwoDecimals(number) {
