@@ -2,12 +2,16 @@ import * as d3 from 'd3'
 import { fuelTypeColors } from './colors'
 import { createOverviewData, createOverviewTable } from './visuals/overview'
 import { fetchCsvData } from './helpers';
+import { createAppCategoriesChart } from './visuals/price-category';
 
 const appStoreDatasetUrl = require('./data/appstore.csv')
+const priceCategoryDataUrl = require('./data/price-rating-categories.csv')
 
 document.addEventListener('DOMContentLoaded', async () => {
   const appStoreData = await fetchCsvData(appStoreDatasetUrl)
+  const priceCategoryData = await fetchCsvData(priceCategoryDataUrl)
   createOverviewTable(createOverviewData(appStoreData))
+  createAppCategoriesChart(priceCategoryData)
 })
 
 function createMPGbyModelChart(data) {

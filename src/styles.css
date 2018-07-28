@@ -37,6 +37,15 @@ ol {
   text-align: center;
 }
 
+.legend-wrapper {
+  font-size: 14px;
+}
+
+.label {
+  fill: black;
+  font-size: 12px;
+}
+
 section:not(:first-of-type) {
   margin-top: 3.5em;
 }
