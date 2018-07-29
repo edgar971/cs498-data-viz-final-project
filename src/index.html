@@ -2,7 +2,8 @@
 
 <head>
   <title>CS498 Data Visualization Final Project</title>
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./css/spectre.min.css">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
@@ -20,23 +21,40 @@
       </p>
       <ol>
         <li>What does the overall dataset show?</li>
-        <li>What categories of apps get the most reviews?</li>
-        <li>Does the price impact the number of reviews and their rating?</li>
+        <li>How does the price impact the number of reviews and their rating?</li>
+        <li>How does the content rating affect the overall app rating?</li>
       </ol>
     </header>
     <section>
-      <div class="content-padding">
+      <div class="content-padding section-details">
         <h3 class="align-center">Overview</h3>
-        <p>The overview shows the app categories, the number of apps, reviews, rating average, and price average. The majority of the apps are games which also has the most number of reviews. Medical apps have the lowest number of reviews and the highest price average. Productivity apps have the highest user rating average. Feel free to explore the overview table below:</p>
+        <p>The overview shows the app categories, the number of apps, reviews, rating average, and price average. The majority
+          of the apps are games which have a relatively average total number of reviews. Medical apps have the lowest number of reviews
+          and the highest price average. Productivity apps have the highest user rating average. Feel free to explore the
+          overview table below:</p>
       </div>
-      <table class="overview"></table>
+      <table class="overview table table-striped table-hover"></table>
     </section>
     <section>
-        <div class="content-padding">
-          <h3 class="align-center">Category of Apps with most reviews</h3>
-          <p>The overview shows the app categories, the number of apps, reviews, rating average, and price average. The majority of the apps are games which also has the most number of reviews. Medical apps have the lowest number of reviews and the highest price average. Productivity apps have the highest user rating average. Feel free to explore the overview table below:</p>
+      <div class="content-padding section-details">
+        <h3 class="align-center">Categories by average number of reviews and price</h3>
+        <p>
+          The scatterplot below shows the pricing and number of rating average for each of the categories analyzed. One interesting
+          find is how Social Networking apps have the highest number of average rating and the lowest price average. On the
+          other hand, Medical apps have the highest pricing and therefore get fewer reviews. Music apps appear to be in between
+          since they have a relatively high price and number of ratings. Hover over the data points below for more information:
+        </p>
+      </div>
+      <svg class="app-categories"></svg>
+    </section>
+    <section>
+        <div class="content-padding section-details">
+          <h3 class="align-center">Age and App Rating</h3>
+         <p>
+           The treemap below
+          </p>
         </div>
-        <svg class="app-categories"></svg>
+        <svg class="app-rating"></svg>
       </section>
   </main>
   <script src="./main.js"></script>

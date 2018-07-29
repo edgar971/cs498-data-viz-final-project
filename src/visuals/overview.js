@@ -101,6 +101,7 @@ export function createOverviewData(data) {
 
   overviewData = overviewData.map(i => ({
     ...i,
+    total_reviews: Math.round((i.total_reviews / i.total) * 100) / 100,
     user_rating: Math.round((i.user_rating / i.total) * 100) / 100,
     price: Math.round((i.price / i.total) * 100) / 100
   }))

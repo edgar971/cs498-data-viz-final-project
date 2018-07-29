@@ -1,7 +1,7 @@
 import * as d3 from 'd3'
 
 const circleRadious = 5
-
+const toolTipElement = createTooltipHolder()
 const margin = { top: 10, right: 10, bottom: 30, left: 40 }
 const width = 960 - margin.left - margin.right
 const height = 500 - margin.top - margin.bottom
@@ -84,8 +84,37 @@ export function createAppCategoriesChart(data) {
     .attr("dy", ".25em")
     .style("text-anchor", "end")
     .text((d) => d)
+}
 
+function createTooltipHolder() {
+  return d3.select('body')
+    .append('div')
+    .attr('class', 'tooltip')
+    .style("opacity", 0)
+}
 
+function showTooltip(data) {
+  const { pageX, pageY } = d3.event
+  toolTipElement.transition()
+    .duration(200)
+    .style("opacity", .9)
+
+  toolTipElement.html(() => {
+    return `
+    <ul>
+    <li>${data.category}</li>
+    <li>Price Avg. $${data.price_avg}</li>
+    <li>Rating Avg. ${data.rating_avg}</li>
+    </ul>
+    `
+  }).style("left", (pageX) + "px")
+    .style("top", (pageY) + "px")
+}
+
+function hideTooltip() {
+  toolTipElement.transition()
+    .duration(500)
+    .style("opacity", 0)
 }
 
 function stringToNumber(data) {
@@ -97,10 +126,12 @@ function stringToNumber(data) {
 }
 
 function handleMouseOver(d, i) {
+  showTooltip(d)
   d3.select(this).attr('r', circleRadious * 2)
 }
 
-function handleMouseOut(d, i) {
+function handleMouseOut() {
+  hideTooltip()
   d3.select(this).attr('r', circleRadious)
 }
 
