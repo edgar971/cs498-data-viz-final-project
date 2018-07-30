@@ -4,7 +4,7 @@ const arrowUrl = require('../images/sort-arrows-couple-pointing-up-and-down.png'
 const upArrowUrl = require('../images/sort-up-arrow.png')
 const downArrowUrl = require('../images/sort-down-arrow.png')
 
-export function createOverviewTable(data) {
+export function drawOverviewTable(data) {
   const sortIndicatorImageClass = 'sort-indicator'
   const headers = {
     category: 'Category',

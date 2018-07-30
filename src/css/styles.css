@@ -93,6 +93,13 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
+.app-rating {
+  fill: rgb(31, 119, 180);
+}
+
+rect.child-map {
+  stroke: white;
+}
 
 th:hover {
   cursor: pointer;

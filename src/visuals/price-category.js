@@ -6,7 +6,7 @@ const margin = { top: 10, right: 10, bottom: 30, left: 40 }
 const width = 960 - margin.left - margin.right
 const height = 500 - margin.top - margin.bottom
 
-export function createAppCategoriesChart(data) {
+export function drawAppCategoriesChart(data) {
   data = stringToNumber(data)
   const xMax = Math.max(...data.map(d => d.price_avg))
   const yMax = Math.max(...data.map(d => d.rating_avg))
