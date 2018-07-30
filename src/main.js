@@ -1,5 +1,4 @@
 import * as d3 from 'd3'
-import { fuelTypeColors } from './colors'
 import { createOverviewData, drawOverviewTable } from './visuals/overview'
 import { fetchCsvData } from './helpers'
 import { drawAppCategoriesChart } from './visuals/price-category'
