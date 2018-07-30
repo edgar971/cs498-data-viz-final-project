@@ -1,0 +1,124 @@
+ol {
+  margin: 0;
+  padding: 0;
+  padding-left: 1em;
+  list-style: inherit;
+}
+
+.main-header {
+  text-align: center;
+  margin-bottom: 5em;
+  margin-top: 1em;
+}
+
+.main-header p {
+  margin: 0;
+}
+
+.main-header h1 {
+  margin: 0;
+}
+
+.main-wrapper, .main-header {
+  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-wrapper > header {
+  margin-bottom: 3.5em;
+}
+
+.content-padding {
+  padding: 0 5rem;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.legend-wrapper {
+  font-size: 14px;
+}
+
+.label {
+  fill: black;
+  font-size: 12px;
+}
+
+.dot {
+  cursor: pointer;
+}
+
+.section-details {
+  padding-bottom: 1em;
+}
+
+div.tooltip {	
+  position: absolute;	
+  text-align: center;		
+  top: 0;
+  left: -100%;	
+  width: 130px;					
+  height: 50px;					
+  padding: 2px;				
+  font: 12px sans-serif;		
+  background: lightsteelblue;	
+  border: 0px;		
+  border-radius: 0 8px 8px 8px;			
+  pointer-events: none;			
+}
+
+div.tooltip ul, div.tooltip li {
+  padding: 0;
+  margin: 0;
+}
+
+div.tooltip li {
+  list-style: none;
+}
+
+section:not(:first-of-type) {
+  margin-top: 3.5em;
+}
+
+th div {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.app-rating {
+  fill: rgb(31, 119, 180);
+}
+
+rect.child-map {
+  stroke: white;
+}
+
+th:hover {
+  cursor: pointer;
+}
+
+.table td, .table th {
+  padding: .4rem .2rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+tbody tr {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
